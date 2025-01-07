@@ -1,0 +1,116 @@
+/* Ajuste no estilo das caixas de seleção e do texto */
+input[type="checkbox"] {
+    margin-right: 10px; /* Espaço entre a caixa de seleção e o texto */
+    vertical-align: middle; /* Alinha a caixa de seleção ao meio do texto */
+    display: inline-block; /* Faz a caixa de seleção aparecer ao lado do texto */
+}
+
+/* Ajuste para o alinhamento dos rótulos */
+label {
+    display: inline-block;
+    margin-bottom: 8px;
+    font-weight: bold;
+    vertical-align: middle; /* Alinha o texto com a caixa de seleção */
+}
+
+/* Estilo geral */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f8ff; /* Azul claro */
+    color: #333;
+    margin: 0;
+    padding: 20px;
+}
+
+h1 {
+    text-align: center;
+    color: #1e90ff; /* Azul dodger */
+}
+
+.form-container {
+    max-width: 800px;
+    margin: 0 auto;
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.section {
+    margin-bottom: 20px;
+}
+
+h2 {
+    color: #4682b4; /* Azul steel */
+    border-bottom: 2px solid #87cefa; /* Azul sky */
+    padding-bottom: 5px;
+    cursor: pointer; /* Cursor de clique para indicar que é clicável */
+}
+
+h2:hover {
+    color: #1e90ff; /* Azul dodger ao passar o mouse */
+}
+
+label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+}
+
+.column-container {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px; /* Espaço entre as colunas */
+}
+
+.column {
+    width: 48%; /* Largura das colunas */
+    display: flex;
+    flex-direction: column; /* Alinha os itens dentro da coluna */
+}
+
+input[type="checkbox"] {
+    margin-right: 10px;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+input[type="number"],
+select,
+textarea {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    transition: border-color 0.3s ease;
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="tel"]:focus,
+input[type="number"]:focus,
+select:focus,
+textarea:focus {
+    border-color: #1e90ff; /* Azul dodger */
+}
+
+.button {
+    background-color: #1e90ff; /* Azul dodger */
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.button:hover {
+    background-color: #4682b4; /* Azul steel */
+}
+
+.form-actions {
+    display: flex;
+    justify-content: space-between;
+}

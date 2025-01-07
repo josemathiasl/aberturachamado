@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulário de Abertura de Chamado</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="form-container">
+        <h1>ABERTURA DE CHAMADO</h1>
+        <form id="formulario">
+            <div class="section">
+                <h2>INFORMACOES DO CLIENTE</h2>
+                <label for="nomeCliente">NOME DO CLIENTE:</label>
+                <input type="text" id="nomeCliente" required>
+                
+                <label for="contato">CONTATO:</label>
+                <input type="text" id="contato" required>
+                
+                <label for="contatoOS">CONTATO QUE GEROU A OS:</label>
+                <input type="text" id="contatoOS" required>
+                
+                <label for="endereco">ENDERECO:</label>
+                <input type="text" id="endereco" required>
+                
+                <label for="pontoReferencia">PONTO DE REFERENCIA:</label>
+                <input type="text" id="pontoReferencia" required>
+                
+                <div class="section">
+                    <label for="periodo">Período:</label>
+                    <select id="periodo" name="periodo">
+                        <option value="manha">MANHÃ</option>
+                        <option value="tarde">TARDE</option>
+                        <option value="indiferente">INDIFERENTE</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2 id="infoTecnicas" onclick="toggleSection('infoTecnicasContent')">INFORMACOES TECNICAS</h2>
+                <div id="infoTecnicasContent" style="display:block;">
+                    <label for="ctoFtta">CTO/FTTA:</label>
+                    <input type="text" id="ctoFtta" required>
+                    
+                    <label for="id">ID:</label>
+                    <input type="text" id="id" required>
+                    
+                    <label for="pppoe">PPPoE:</label>
+                    <input type="text" id="pppoe" required>
+                    
+                    <label for="potencia">POTENCIA:</label>
+                    <input type="text" id="potencia" required>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2 id="alarmes" onclick="toggleSection('alarmesContent')">ALARMES</h2>
+                <div id="alarmesContent" style="display:none;">
+                    <div class="column-container">
+                        <div class="column">
+                            <label><input type="checkbox" name="alarmes" value="LINK LOSS (ROMPIMENTO DE FIBRA)">LINK LOSS</label>
+                            <label><input type="checkbox" name="alarmes" value="SUF  (FALHA DA ONU)">SUF </label>
+                            <label><input type="checkbox" name="alarmes" value="DOW  (ATENUAÇAO LONGA)">DOW</label>
+                            <label><input type="checkbox" name="alarmes" value="SD  (SUJEIRA)">SD</label>
+                        </div>
+                        <div class="column">
+                            <label><input type="checkbox" name="alarmes" value="LOF  (DOBRA DO CABO)">LOF</label>
+                            <label><input type="checkbox" name="alarmes" value="LOS  (DOBRA DO CABO AGRESSIVA)"> LOS</label>
+                            <label><input type="checkbox" name="alarmes" value="LOAM (DOBRA DO CABO BRANDA)">LOAM </label>
+                            <label><input type="checkbox" name="alarmes" value="DYNG GASP  (OSCILACAO DE ENERGIA)">DYNG GASP</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2 id="custosAdicionais" onclick="toggleSection('custosContent')">CUSTOS ADICIONAIS</h2>
+                <div id="custosContent" style="display:none;">
+                    <div class="column-container">
+                        <div class="column">
+                            <label><input type="checkbox" name="custos" value="CABO DE REDE CAT5E (R$ 4,00 O METRO)">CABO DE REDE CAT5E (R$ 4,00 O METRO)</label>
+                            <label><input type="checkbox" name="custos" value="CABO DE FIBRA OPTICA (R$ 1,50 O METRO)">CABO DE FIBRA OPTICA (R$ 1,50 O METRO)</label>
+                        </div>
+                        <div class="column">
+                            <label><input type="checkbox" name="custos" value="CONECTOR RJ45 (R$ 5,00 UNIDADE)">CONECTOR RJ45 (R$ 5,00 UNIDADE)</label>
+                            <label><input type="checkbox" name="custos" value="CONECTOR UPC/APC (R$ 35,00 UNIDADE)">CONECTOR UPC/APC (R$ 35,00 UNIDADE)</label>
+                            <label><input type="checkbox" name="custos" value="FONTE (R$ 35,00 UNIDADE)">FONTE (R$ 35,00 UNIDADE)</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2 id="servicosToggle" onclick="toggleSection('servicosContent')">SERVIÇOS</h2>
+                <div id="servicosContent" style="display:none;">
+                    <div class="column-container">
+                        <div class="section">
+                            <label for="instalacaoPontoExtra">Ponto Extra:</label> 
+<select id="instalacaoPontoExtra" name="instalacaoPontoExtra">
+    <option value="">Sem Ponto Extra</option>
+    <option value="PONTO EXTRA ISENTO">Ponto Extra Isento</option>
+    <option value="PONTO EXTRA CUSTO DE 8 X DE R$ 25,00">Ponto Extra com custo 8 x R$ 25,00</option>
+</select>
+
+                        </div>
+                        </div>
+                        <div class="column">
+                            <label><input type="checkbox" id="isençãoOS"> ISENCAO DA OS</label>
+                            <div id="supervisorIsencao" style="display: block;">
+                                <label for="nomeSupervisorIsencao">Nome do Supervisor que Isentou</label>
+                                <input type="text" id="nomeSupervisorIsencao" placeholder="Digite o nome do supervisor">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-actions">
+                <button type="button" id="gerarChamadoButton" class="button">GERAR CHAMADO E COPIAR</button>
+
+            </div>
+
+        </form>
+
+        <!-- Campo para saída do chamado -->
+        <div id="saida">
+            <h2>SAÍDA GERADA:</h2>
+            <pre id="saidaChamado"></pre>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
