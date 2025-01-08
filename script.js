@@ -49,7 +49,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // Gerar o conteúdo do chamado
         let chamadoTexto = ` 
-        ________________INFORMACOES CLIENTE_______________
+       \n        ________________INFORMACOES CLIENTE_______________
         CLIENTE: ${nomeCliente}__ 
         CONTATO: ${contato}__ 
         ENDERECO: ${endereco}__ 
