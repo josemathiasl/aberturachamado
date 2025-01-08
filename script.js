@@ -49,28 +49,28 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // Gerar o conteúdo do chamado
         let chamadoTexto = ` 
-        ____________________INFORMACOES CLIENTE____________________ 
+        ________________INFORMACOES CLIENTE_______________
         CLIENTE: ${nomeCliente}__ 
         CONTATO: ${contato}__ 
         ENDERECO: ${endereco}__ 
         PONTO DE REFERENCIA: ${pontoReferencia}__ 
         PERIODO: ${periodo}__ 
         
-       ____________________INFORMACOES TECNICAS____________________ 
+       _______________INFORMACOES TECNICAS_______________ 
         CTO/FTTA: ${removerAcentos(document.getElementById('ctoFtta').value.toUpperCase())}__ 
         ID: ${removerAcentos(document.getElementById('id').value.toUpperCase())}__ 
         PPPoE: ${document.getElementById('pppoe').value}__ 
         POTENCIA: ${removerAcentos(document.getElementById('potencia').value.toUpperCase())}__ 
         
-        ____________________OBSERVACOES____________________ 
+        ___________________OBSERVACOES___________________ 
         ${observacoes ? observacoes : 'Nenhuma observação fornecida.'}
-        ____________________ALARMES____________________ 
+        _____________________ALARMES_____________________ 
         ${alarmes.length > 0 ? alarmes.join('\n        ') : 'Nenhum alarme selecionado.'} 
         
-        ____________________CUSTOS ADICIONAIS____________________ 
+        ________________CUSTOS ADICIONAIS________________ 
         ${custos.length > 0 ? custos.join('\n        ') : 'Nenhum custo adicional selecionado.'} 
         
-        ____________________SERVICOS____________________ 
+        _____________________SERVICOS____________________ 
         ${pontoExtraSelecionado ? `Ponto Extra: ${pontoExtraSelecionado}` : 'Nenhum serviço extra selecionado.'} 
         ${isencaoOS ? `ORDEM DE SERVIÇO ISENTA CONFORME ACORDADO COM (Supervisor: ${nomeSupervisorIsencao})` : ''} 
         
