@@ -49,33 +49,32 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // Gerar o conteúdo do chamado
         let chamadoTexto = ` 
-        ___________________________________INFORMACOES CLIENTE___________________________________ 
-        CLIENTE: ${nomeCliente}____ 
-        CONTATO: ${contato}____ 
-        ENDERECO: ${endereco}____ 
-        PONTO DE REFERENCIA: ${pontoReferencia}____ 
-        PERIODO: ${periodo}____ 
+        ____________________INFORMACOES CLIENTE____________________ 
+        CLIENTE: ${nomeCliente}__ 
+        CONTATO: ${contato}__ 
+        ENDERECO: ${endereco}__ 
+        PONTO DE REFERENCIA: ${pontoReferencia}__ 
+        PERIODO: ${periodo}__ 
         
-        __________________________________INFORMACOES TECNICAS___________________________________ 
-        CTO/FTTA: ${removerAcentos(document.getElementById('ctoFtta').value.toUpperCase())}____ 
-        ID: ${removerAcentos(document.getElementById('id').value.toUpperCase())}____ 
-        PPPoE: ${document.getElementById('pppoe').value}____ 
-        POTENCIA: ${removerAcentos(document.getElementById('potencia').value.toUpperCase())}____ 
+       ____________________INFORMACOES TECNICAS____________________ 
+        CTO/FTTA: ${removerAcentos(document.getElementById('ctoFtta').value.toUpperCase())}__ 
+        ID: ${removerAcentos(document.getElementById('id').value.toUpperCase())}__ 
+        PPPoE: ${document.getElementById('pppoe').value}__ 
+        POTENCIA: ${removerAcentos(document.getElementById('potencia').value.toUpperCase())}__ 
         
-        _____________________________________ALARMES__________________________________________ 
+        ____________________OBSERVACOES____________________ 
+        ${observacoes ? observacoes : 'Nenhuma observação fornecida.'}
+        ____________________ALARMES____________________ 
         ${alarmes.length > 0 ? alarmes.join('\n        ') : 'Nenhum alarme selecionado.'} 
         
-        _________________________________CUSTOS ADICIONAIS____________________________________ 
+        ____________________CUSTOS ADICIONAIS____________________ 
         ${custos.length > 0 ? custos.join('\n        ') : 'Nenhum custo adicional selecionado.'} 
         
-        ____________________________________SERVICOS__________________________________________ 
+        ____________________SERVICOS____________________ 
         ${pontoExtraSelecionado ? `Ponto Extra: ${pontoExtraSelecionado}` : 'Nenhum serviço extra selecionado.'} 
         ${isencaoOS ? `ORDEM DE SERVIÇO ISENTA CONFORME ACORDADO COM (Supervisor: ${nomeSupervisorIsencao})` : ''} 
         
         ${mensagemFinal} 
-        
-        _____________________________________OBSERVACOES_______________________________________ 
-        ${observacoes ? observacoes : 'Nenhuma observação fornecida.'}
         `;
         
         // Exibe a saída gerada
