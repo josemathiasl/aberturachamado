@@ -1,6 +1,7 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // Elementos para o botão de gerar chamado
+    // Elementos para os botões
     const gerarChamadoButton = document.getElementById('gerarChamadoButton');
+    const limparFormularioButton = document.getElementById('limparFormularioButton');
     const saidaCampo = document.getElementById('saida');
     const saidaChamado = document.getElementById('saidaChamado');
 
@@ -15,7 +16,7 @@ document.addEventListener('DOMContentLoaded', () => {
         };
 
         return texto.replace(/[áàãâäåéèêëíìîïóòõôöúùûüçñÁÀÃÂÄÅÉÈÊËÍÌÎÏÓÒÕÔÖÚÙÛÜÇÑ]/g, (match) => mapaAcentos[match]);
-     }
+    }
 
     // Função para gerar e exibir o chamado
     gerarChamadoButton.addEventListener('click', () => {
@@ -36,6 +37,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // Coleta dos custos adicionais selecionados
         const custos = Array.from(document.querySelectorAll('input[name="custos"]:checked')).map(checkbox => checkbox.value);
+
+        // Coleta das observações
+        const observacoes = removerAcentos(document.getElementById('observacoes').value.toUpperCase());
 
         // Mensagem final condicional para isenção de OS
         let mensagemFinal = '';
@@ -69,6 +73,9 @@ document.addEventListener('DOMContentLoaded', () => {
         ${isencaoOS ? `ORDEM DE SERVIÇO ISENTA CONFORME ACORDADO COM (Supervisor: ${nomeSupervisorIsencao})` : ''} 
         
         ${mensagemFinal} 
+        
+        _____________________________________OBSERVACOES_______________________________________ 
+        ${observacoes ? observacoes : 'Nenhuma observação fornecida.'}
         `;
         
         // Exibe a saída gerada
@@ -83,8 +90,15 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
+    // Função para limpar o formulário
+    limparFormularioButton.addEventListener('click', () => {
+        document.getElementById('formulario').reset(); // Reseta todos os campos do formulário
+        saidaCampo.style.display = 'none'; // Esconde a área de saída
+        saidaChamado.textContent = ''; // Limpa o texto da saída
+    });
+
     // Exibe a área de saída
-    saidaCampo.style.display = 'none';
+    saidaCampo.style.display = 'block';
 });
 
 // Função para alternar a visibilidade das seções de Instalação/Troca de Endereço e Serviços Extras
@@ -96,6 +110,3 @@ function toggleSection(sectionId) {
         sectionContent.style.display = 'none';
     }
 }
-
-// Verificar se a checkbox de instalação e troca de endereço ou serviços extras foi marcada
-document.getElementById('servicosExtras').addEventListener('change', () => toggleSection('secoesExtras'));
